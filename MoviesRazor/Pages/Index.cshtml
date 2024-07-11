@@ -1,0 +1,83 @@
+﻿@page "{handler?}"
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<style>
+
+    body{
+        background-color: #0f0f0f;
+    }
+    .movies-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .movie {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        background-color: #fff;
+        min-width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #2f302f;
+
+    }
+
+    .movie img {
+        width: 20%;
+        height: auto;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        align-self: center;
+    }
+
+    .movie-details h4 {
+        margin-top: 0;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .movie-details p {
+        margin: 0;
+        line-height: 1.5;
+        color: #f2efda;
+    }
+
+    .gradient-text {
+        background: linear-gradient(45deg, #FFC0CB, #FF4500);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+</style>
+
+
+<div style="padding-top:30px">
+    <h3 class="gradient-text">Movies List!</h3>
+    <div class="movies-container">
+        @foreach (var movie in Model.Movies)
+        {
+            <div class="movie">
+                <img src="@Url.Content(movie.Img)" alt="@movie.Title" />
+                <div class="movie-details">
+                    <h4 class="gradient-text">@movie.Title</h4>
+                    <p><strong>Year:</strong> @movie.Year</p>
+                    <p><strong>Director:</strong> @movie.Director</p>
+                    <p><strong>Genre:</strong> @movie.Genre</p>   
+
+                    <a asp-page="./Edit" asp-route-id="@movie.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@movie.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@movie.Id">Delete</a>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

@@ -1,0 +1,37 @@
+﻿@page
+@model MoviesRazor.Pages.DetailsModel
+@{
+}
+
+
+<style>
+
+    body {
+        background-color: #0f0f0f;
+        color: #f2efda;
+    }
+
+</style>
+<h1>Details</h1>
+
+<div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-10">
+            <dl>
+                <dt>@Html.DisplayNameFor(model => model.Movie.Title)</dt>
+                <dd>@Html.DisplayFor(model => model.Movie.Title)</dd>
+                <dt>@Html.DisplayNameFor(model => model.Movie.Year)</dt>
+                <dd>@Html.DisplayFor(model => model.Movie.Year)</dd>
+                <dt>@Html.DisplayNameFor(model => model.Movie.Director)</dt>
+                <dd>@Html.DisplayFor(model => model.Movie.Director)</dd
+                <dt>@Html.DisplayNameFor(model => model.Movie.Genre)</dt>
+                <dd>@Html.DisplayFor(model => model.Movie.Genre)</dd>
+                <dt>@Html.DisplayNameFor(model => model.Movie.Info)</dt>
+                <dd>@Html.DisplayFor(model => model.Movie.Info)</dd>
+
+            </dl>
+        </div>
+    </div>
+      <a asp-page="Index">Back to List</a>
+</div>
